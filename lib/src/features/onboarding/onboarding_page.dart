@@ -1,3 +1,5 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mono/src/components/button_primary.dart';
 import 'package:mono/src/constants/color.dart';
@@ -30,17 +32,25 @@ class OnboardingPage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Image.asset(
-                  AppImage.kCharacter,
-                  alignment: Alignment.center,
-                  height: MediaQuery.sizeOf(context).height * 0.5,
-                ),
-                Text(
-                  'Spend Smarter\nSave More',
-                  style: AppTypography.kDisplay.copyWith(
-                    color: AppColor.kPrimary,
+                Expanded(
+                  flex: 3,
+                  child: Image.asset(
+                    AppImage.kCharacter,
+                    alignment: Alignment.center,
+                    height: MediaQuery.sizeOf(context).height * 0.5,
                   ),
-                  textAlign: TextAlign.center,
+                ),
+                Expanded(
+                  flex: 1,
+                  child: AutoSizeText(
+                    'Spend Smarter\nSave More',
+                    maxFontSize: AppSize.s36,
+                    minFontSize: AppSize.s24,
+                    style: AppTypography.kDisplay.copyWith(
+                      color: AppColor.kPrimary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 const SizedBox(height: AppSize.s24),
                 CustomButtonPrimary(
@@ -48,23 +58,20 @@ class OnboardingPage extends StatelessWidget {
                   onPressed: () {},
                 ),
                 const SizedBox(height: AppSize.s20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Already have account? ',
-                      style: AppTypography.kBody,
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        'Log In',
-                        style: AppTypography.kBody.copyWith(
+                RichText(
+                  text: TextSpan(
+                    text: 'Already have account? ',
+                    style: AppTypography.kBody,
+                    children: [
+                      TextSpan(
+                        text: 'Log In',
+                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        style: AppTypography.kLink.copyWith(
                           color: AppColor.kPrimary,
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
