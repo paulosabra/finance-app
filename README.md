@@ -15,7 +15,7 @@ The visual design of the project was based on a prototype made available by the 
 
 ## Features
 - [x] Splash
-- [ ] Onboarding
+- [x] Onboarding
 - [ ] Sign In
 - [ ] Sign Up
 - [ ] Logout

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mono/src/features/splash/splash_page.dart';
+import 'package:mono/src/features/onboarding/onboarding_page.dart';
 
 class MonoApp extends StatelessWidget {
   const MonoApp({super.key});
@@ -8,7 +8,7 @@ class MonoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      home: OnboardingPage(),
     );
   }
 }

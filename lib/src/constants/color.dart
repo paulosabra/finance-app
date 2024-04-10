@@ -17,4 +17,13 @@ class AppColor {
       AppColor.kPrimary,
     ],
   );
+
+  static const LinearGradient kButtonPrimaryGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      AppColor.kPrimaryLight,
+      AppColor.kPrimaryDark,
+    ],
+  );
 }
