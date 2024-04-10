@@ -13,9 +13,24 @@ class AppTypography {
     fontSize: 16,
   );
 
+  static TextStyle kDisplay = _baseFontStyle.copyWith(
+    fontSize: 36,
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle kBody = _baseFontStyle.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
+
   static TextStyle kButton = _baseFontStyle.copyWith(
     fontSize: 18,
     fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle kLink = _baseFontStyle.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
   );
 
   // Specific Typography
