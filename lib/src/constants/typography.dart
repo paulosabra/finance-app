@@ -13,6 +13,12 @@ class AppTypography {
     fontSize: 16,
   );
 
+  static TextStyle kButton = _baseFontStyle.copyWith(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+  );
+
+  // Specific Typography
   static TextStyle kSplashPageTitle = _baseFontStyle.copyWith(
     fontSize: 48,
     fontWeight: FontWeight.w700,
