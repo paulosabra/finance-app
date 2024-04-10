@@ -14,7 +14,7 @@ For the architectural organization of the project, the use of the MVC Pattern (M
 The visual design of the project was based on a prototype made available by the Figma community, developed by Irvan Moses. You can access the original prototype [here](https://www.figma.com/community/file/1080339303735258826).
 
 ## Features
-- [ ] Splash
+- [x] Splash
 - [ ] Onboarding
 - [ ] Sign In
 - [ ] Sign Up
