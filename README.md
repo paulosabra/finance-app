@@ -1,4 +1,4 @@
-# Mono - Finance App
+# mono - Finance App
 ![](https://img.shields.io/badge/Dev%20Kaio-2F7E79?style=for-the-badge&logo=flutter&logoColor=white)
 
 This project serves as a practical exercise in mobile app development, focusing on the challenge of recreating a Finance App developed with Flutter, based on the lessons taught by Kaio C. de Oliveira. Follow the journey of development and learning with Flutter here.

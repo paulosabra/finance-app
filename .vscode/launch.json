@@ -1,0 +1,9 @@
+{
+    "configurations": [
+        {
+            "name": "mono",
+            "type": "dart",
+            "request": "launch",
+        }
+    ]
+}

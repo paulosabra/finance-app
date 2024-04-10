@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "mono" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "mono" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 dev.paulosabra. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 Paulo Sabra. All rights reserved." "\0"
             VALUE "OriginalFilename", "mono.exe" "\0"
             VALUE "ProductName", "mono" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

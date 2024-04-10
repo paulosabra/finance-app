@@ -11,4 +11,4 @@ PRODUCT_NAME = mono
 PRODUCT_BUNDLE_IDENTIFIER = dev.paulosabra.mono
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2024 dev.paulosabra. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 Paulo Sabra. All rights reserved.
