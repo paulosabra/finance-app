@@ -14,6 +14,8 @@ class CustomTextInput extends StatefulWidget {
   final TextInputType? inputType;
   final List<TextInputFormatter>? inputFormatters;
   final FormFieldValidator<String>? validator;
+  final Widget? suffixIcon;
+  final bool obscureText;
 
   const CustomTextInput({
     super.key,
@@ -26,6 +28,8 @@ class CustomTextInput extends StatefulWidget {
     this.inputType,
     this.inputFormatters,
     this.validator,
+    this.suffixIcon,
+    this.obscureText = false,
   });
 
   @override
@@ -65,7 +69,9 @@ class _CustomTextInputState extends State<CustomTextInput> {
               helperMaxLines: 2,
               errorText: widget.errorText,
               errorMaxLines: 2,
+              suffixIcon: widget.suffixIcon,
             ),
+            obscureText: widget.obscureText,
             style: hasFocus
                 ? AppTypography.kInputFocus.copyWith(color: AppColor.kPrimary)
                 : AppTypography.kInput.copyWith(color: AppColor.kTextSecondary),
