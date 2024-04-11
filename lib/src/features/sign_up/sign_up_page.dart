@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mono/src/components/button_primary.dart';
+import 'package:mono/src/components/error_dialog.dart';
+import 'package:mono/src/components/loader.dart';
 import 'package:mono/src/components/password_input.dart';
 import 'package:mono/src/components/text_input.dart';
 import 'package:mono/src/constants/color.dart';
@@ -44,15 +44,28 @@ class _SignUpPageState extends State<SignUpPage> {
     super.initState();
     _controller.addListener(() {
       if (_controller.state is SignUpLoadingState) {
-        log('${_controller.state}');
+        showLoader(context);
       }
 
       if (_controller.state is SignUpErrorState) {
-        log('${_controller.state}');
+        Navigator.pop(context);
+        showErrorDialog(context);
       }
 
       if (_controller.state is SignUpSuccessState) {
-        log('${_controller.state}');
+        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return const Scaffold(
+                body: Center(
+                  child: Text('SUCCESS'),
+                ),
+              );
+            },
+          ),
+        );
       }
     });
   }
