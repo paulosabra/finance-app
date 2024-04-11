@@ -10,6 +10,8 @@ import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/image.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/features/sign_up/sign_up_controller.dart';
+import 'package:mono/src/features/sign_up/sign_up_state.dart';
 import 'package:mono/src/utils/upper_case_input_formatter.dart';
 import 'package:mono/src/utils/validator.dart';
 
@@ -21,6 +23,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final _controller = SignUpController();
+
   final GlobalKey<FormState> _formKey = GlobalKey();
 
   final _nameController = TextEditingController();
@@ -33,6 +37,24 @@ class _SignUpPageState extends State<SignUpPage> {
     _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      if (_controller.state is SignUpLoadingState) {
+        log('${_controller.state}');
+      }
+
+      if (_controller.state is SignUpErrorState) {
+        log('${_controller.state}');
+      }
+
+      if (_controller.state is SignUpSuccessState) {
+        log('${_controller.state}');
+      }
+    });
   }
 
   @override
@@ -110,7 +132,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       onPressed: () {
                         final isValid = _formKey.currentState?.validate();
                         if (isValid != null && isValid) {
-                          log('isValid: $isValid');
+                          _controller.signUp(
+                            name: _nameController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
                         }
                       },
                     ),
