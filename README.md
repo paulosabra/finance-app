@@ -16,8 +16,8 @@ The visual design of the project was based on a prototype made available by the 
 ## Features
 - [x] Splash
 - [x] Onboarding
+- [x] Sign Up
 - [ ] Sign In
-- [ ] Sign Up
 - [ ] Logout
 - [ ] Transactions
 - [ ] Wallet
