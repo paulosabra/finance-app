@@ -11,7 +11,7 @@ class CustomLoader extends StatelessWidget {
       child: SizedBox.square(
         dimension: AppSize.s48,
         child: CircularProgressIndicator(
-          color: AppColor.kPrimary,
+          color: AppColor.kWhite,
           strokeWidth: AppSize.s4,
         ),
       ),
