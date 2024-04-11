@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mono/src/constants/theme.dart';
 import 'package:mono/src/features/onboarding/onboarding_page.dart';
 
 class MonoApp extends StatelessWidget {
@@ -6,9 +7,10 @@ class MonoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingPage(),
+      theme: appTheme,
+      home: const OnboardingPage(),
     );
   }
 }

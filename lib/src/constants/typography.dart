@@ -33,6 +33,26 @@ class AppTypography {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle kLabel = _baseFontStyle.copyWith(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle kLabelFocus = _baseFontStyle.copyWith(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle kInput = _baseFontStyle.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle kInputFocus = _baseFontStyle.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+
   // Specific Typography
   static TextStyle kSplashPageTitle = _baseFontStyle.copyWith(
     fontSize: 48,
