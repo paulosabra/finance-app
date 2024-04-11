@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,8 @@ import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/image.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/utils/upper_case_input_formatter.dart';
+import 'package:mono/src/utils/validator.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -17,24 +21,35 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final GlobalKey<FormState> _formKey = GlobalKey();
+
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.kWhite,
       body: SafeArea(
-        child: Stack(
-          children: [
-            Image.asset(
-              AppImage.kBackground,
-              width: MediaQuery.sizeOf(context).width,
-              alignment: Alignment.topCenter,
-            ),
-            Center(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppSize.s28,
-                  vertical: AppSize.s48,
-                ),
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Image.asset(
+                AppImage.kBackground,
+                alignment: Alignment.topCenter,
+              ),
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(AppSize.s28),
                 child: Column(
                   children: [
                     AutoSizeText(
@@ -47,27 +62,57 @@ class _SignUpPageState extends State<SignUpPage> {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: AppSize.s48),
-                    const CustomTextInput(
-                      labelText: 'Your Name',
-                    ),
-                    const SizedBox(height: AppSize.s24),
-                    const CustomTextInput(
-                      labelText: 'Your Email',
-                    ),
-                    const SizedBox(height: AppSize.s24),
-                    const CustomPasswordInput(
-                      labelText: 'Choose Your Password',
-                      helperText:
-                          'Must have at least 8 characters, 1 capital letter and 1 number.',
-                    ),
-                    const SizedBox(height: AppSize.s24),
-                    const CustomPasswordInput(
-                      labelText: 'Confirm Your Password',
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          CustomTextInput(
+                            labelText: 'Your Name',
+                            helperText:
+                                'Must have at least first and last name.',
+                            editingController: _nameController,
+                            inputFormatters: [
+                              UpperCaseInputFormatter(),
+                            ],
+                            validator: Validator.validateName,
+                          ),
+                          const SizedBox(height: AppSize.s20),
+                          CustomTextInput(
+                            labelText: 'Your Email',
+                            editingController: _emailController,
+                            inputType: TextInputType.emailAddress,
+                            validator: Validator.validateEmail,
+                          ),
+                          const SizedBox(height: AppSize.s20),
+                          CustomPasswordInput(
+                            labelText: 'Choose Your Password',
+                            helperText:
+                                'Must have at least 8 characters, 1 capital letter and 1 number.',
+                            editingController: _passwordController,
+                            validator: Validator.validatePassword,
+                          ),
+                          const SizedBox(height: AppSize.s20),
+                          CustomPasswordInput(
+                            labelText: 'Confirm Your Password',
+                            validator: (value) {
+                              return Validator.validateConfirmPassword(
+                                _passwordController.text,
+                                value,
+                              );
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: AppSize.s48),
                     CustomButtonPrimary(
                       text: 'Sign Up',
-                      onPressed: () {},
+                      onPressed: () {
+                        final isValid = _formKey.currentState?.validate();
+                        if (isValid != null && isValid) {
+                          log('isValid: $isValid');
+                        }
+                      },
                     ),
                     const SizedBox(height: AppSize.s20),
                     RichText(
@@ -88,11 +133,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-      resizeToAvoidBottomInset: false,
     );
   }
 }
