@@ -12,6 +12,7 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 import 'package:mono/src/features/sign_up/sign_up_controller.dart';
 import 'package:mono/src/features/sign_up/sign_up_state.dart';
+import 'package:mono/src/services/auth/auth_service_mock.dart';
 import 'package:mono/src/utils/upper_case_input_formatter.dart';
 import 'package:mono/src/utils/validator.dart';
 
@@ -23,7 +24,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final _controller = SignUpController();
+  final _controller = SignUpController(
+    service: AuthServiceMock(),
+  );
 
   final GlobalKey<FormState> _formKey = GlobalKey();
 
