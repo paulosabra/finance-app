@@ -18,6 +18,11 @@ class AppTypography {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle kTitle = _baseFontStyle.copyWith(
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle kBody = _baseFontStyle.copyWith(
     fontSize: 14,
     fontWeight: FontWeight.w400,
@@ -31,6 +36,26 @@ class AppTypography {
   static TextStyle kLink = _baseFontStyle.copyWith(
     fontSize: 14,
     fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle kLabel = _baseFontStyle.copyWith(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle kLabelFocus = _baseFontStyle.copyWith(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle kInput = _baseFontStyle.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle kInputFocus = _baseFontStyle.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
   );
 
   // Specific Typography

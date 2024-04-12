@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mono/src/components/button_primary.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/image.dart';
+import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 
@@ -23,39 +24,37 @@ class OnboardingPage extends StatelessWidget {
           ),
           Container(
             alignment: Alignment.bottomCenter,
-            padding: const EdgeInsets.only(
-              bottom: AppSize.s48,
-              left: AppSize.s28,
-              right: AppSize.s28,
-              top: AppSize.s48,
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSize.s28,
+              vertical: AppSize.s48,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Expanded(
-                  flex: 3,
                   child: Image.asset(
                     AppImage.kCharacter,
                     alignment: Alignment.center,
-                    height: MediaQuery.sizeOf(context).height * 0.5,
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: AutoSizeText(
-                    'Spend Smarter\nSave More',
-                    maxFontSize: AppSize.s36,
-                    minFontSize: AppSize.s24,
-                    style: AppTypography.kDisplay.copyWith(
-                      color: AppColor.kPrimary,
-                    ),
-                    textAlign: TextAlign.center,
+                AutoSizeText(
+                  'Spend Smarter Save More',
+                  maxFontSize: AppSize.s36,
+                  minFontSize: AppSize.s24,
+                  style: AppTypography.kDisplay.copyWith(
+                    color: AppColor.kPrimary,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: AppSize.s24),
                 CustomButtonPrimary(
                   text: 'Get Started',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.signup,
+                    );
+                  },
                 ),
                 const SizedBox(height: AppSize.s20),
                 RichText(
