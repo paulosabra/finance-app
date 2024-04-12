@@ -1,9 +1,35 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:mono/src/constants/color.dart';
+import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/typography.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+    initTimer();
+  }
+
+  Timer initTimer() {
+    return Timer(
+      const Duration(seconds: 3),
+      () {
+        Navigator.pushReplacementNamed(
+          context,
+          AppRoutes.onboarding,
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

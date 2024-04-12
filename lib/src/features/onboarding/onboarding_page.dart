@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mono/src/components/button_primary.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/image.dart';
+import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 
@@ -48,7 +49,12 @@ class OnboardingPage extends StatelessWidget {
                 const SizedBox(height: AppSize.s24),
                 CustomButtonPrimary(
                   text: 'Get Started',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.signup,
+                    );
+                  },
                 ),
                 const SizedBox(height: AppSize.s20),
                 RichText(
