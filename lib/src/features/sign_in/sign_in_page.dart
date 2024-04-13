@@ -33,10 +33,10 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   void dispose() {
-    super.dispose();
-
+    _controller.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -57,17 +57,9 @@ class _SignInPageState extends State<SignInPage> {
 
       if (_controller.state is SignInSuccessState) {
         Navigator.pop(context);
-        Navigator.push(
+        Navigator.pushReplacementNamed(
           context,
-          MaterialPageRoute(
-            builder: (context) {
-              return const Scaffold(
-                body: Center(
-                  child: Text('SUCCESS'),
-                ),
-              );
-            },
-          ),
+          AppRoutes.initial,
         );
       }
     });

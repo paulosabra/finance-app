@@ -60,7 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
       if (_controller.state is SignUpSuccessState) {
         Navigator.pop(context);
-        Navigator.pushNamed(
+        Navigator.pushReplacementNamed(
           context,
           AppRoutes.signin,
         );
