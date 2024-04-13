@@ -9,17 +9,16 @@ class AppRoutes {
   AppRoutes._();
 
   static const String initial = '/';
-  static const String splash = 'splash';
-  static const String onboarding = 'onboarding';
-  static const String signup = 'signup';
-  static const String signin = 'signin';
-  static const String home = 'home';
+  static const String splash = '/splash';
+  static const String onboarding = '/onboarding';
+  static const String signup = '/signup';
+  static const String signin = '/signin';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     AppRoutes.splash: (context) => const SplashPage(),
     AppRoutes.onboarding: (context) => const OnboardingPage(),
     AppRoutes.signup: (context) => const SignUpPage(),
     AppRoutes.signin: (context) => const SignInPage(),
-    AppRoutes.home: (context) => const HomePage(),
+    AppRoutes.initial: (context) => const HomePage(),
   };
 }
