@@ -51,7 +51,10 @@ class _SignUpPageState extends State<SignUpPage> {
 
       if (_controller.state is SignUpErrorState) {
         Navigator.pop(context);
-        showErrorDialog(context);
+        showErrorDialog(
+          context,
+          message: (_controller.state as SignUpErrorState).message,
+        );
       }
 
       if (_controller.state is SignUpSuccessState) {

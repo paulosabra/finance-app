@@ -30,8 +30,8 @@ class SignUpController extends ChangeNotifier {
       );
 
       _emit(SignUpSuccessState());
-    } catch (e) {
-      _emit(SignUpErrorState());
+    } catch (error) {
+      _emit(SignUpErrorState(error.toString()));
     }
   }
 }

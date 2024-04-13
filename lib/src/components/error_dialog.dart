@@ -5,7 +5,12 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 
 class CustomErrorDialog extends StatelessWidget {
-  const CustomErrorDialog({super.key});
+  final String? message;
+
+  const CustomErrorDialog({
+    super.key,
+    this.message,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,7 @@ class CustomErrorDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Oops. Something went wrong!',
+            message ?? 'Oops. Something went wrong!',
             style: AppTypography.kTitle.copyWith(
               color: AppColor.kPrimary,
             ),
@@ -41,11 +46,16 @@ class CustomErrorDialog extends StatelessWidget {
   }
 }
 
-Future<void> showErrorDialog(BuildContext context) {
+Future<void> showErrorDialog(
+  BuildContext context, {
+  String? message,
+}) {
   return showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
-      return const CustomErrorDialog();
+      return CustomErrorDialog(
+        message: message,
+      );
     },
   );
 }

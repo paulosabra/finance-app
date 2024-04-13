@@ -28,8 +28,8 @@ class SignInController extends ChangeNotifier {
       );
 
       _emit(SignInSuccessState());
-    } catch (e) {
-      _emit(SignInErrorState());
+    } catch (error) {
+      _emit(SignInErrorState(error.toString()));
     }
   }
 }

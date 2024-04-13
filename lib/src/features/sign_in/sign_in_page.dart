@@ -49,7 +49,10 @@ class _SignInPageState extends State<SignInPage> {
 
       if (_controller.state is SignInErrorState) {
         Navigator.pop(context);
-        showErrorDialog(context);
+        showErrorDialog(
+          context,
+          message: (_controller.state as SignInErrorState).message,
+        );
       }
 
       if (_controller.state is SignInSuccessState) {
