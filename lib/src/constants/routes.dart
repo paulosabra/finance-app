@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mono/src/features/home/home_page.dart';
 import 'package:mono/src/features/onboarding/onboarding_page.dart';
 import 'package:mono/src/features/sign_in/sign_in_page.dart';
 import 'package:mono/src/features/sign_up/sign_up_page.dart';
@@ -12,11 +13,13 @@ class AppRoutes {
   static const String onboarding = 'onboarding';
   static const String signup = 'signup';
   static const String signin = 'signin';
+  static const String home = 'home';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     AppRoutes.splash: (context) => const SplashPage(),
     AppRoutes.onboarding: (context) => const OnboardingPage(),
     AppRoutes.signup: (context) => const SignUpPage(),
     AppRoutes.signin: (context) => const SignInPage(),
+    AppRoutes.home: (context) => const HomePage(),
   };
 }
