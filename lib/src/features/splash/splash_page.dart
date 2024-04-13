@@ -28,12 +28,12 @@ class _SplashPageState extends State<SplashPage> {
     _controller.isUserLogged();
     _controller.addListener(() {
       if (_controller.state is SplashSuccessState) {
-        Navigator.pushNamed(
+        Navigator.pushReplacementNamed(
           context,
           AppRoutes.signin,
         );
       } else {
-        Navigator.pushNamed(
+        Navigator.pushReplacementNamed(
           context,
           AppRoutes.onboarding,
         );
