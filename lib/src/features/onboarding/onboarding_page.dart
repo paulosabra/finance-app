@@ -63,8 +63,14 @@ class OnboardingPage extends StatelessWidget {
                     style: AppTypography.kBody,
                     children: [
                       TextSpan(
-                        text: 'Log In',
-                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        text: 'Sign In',
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.pushNamed(
+                              context,
+                              AppRoutes.signin,
+                            );
+                          },
                         style: AppTypography.kLink.copyWith(
                           color: AppColor.kPrimary,
                         ),

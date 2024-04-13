@@ -8,6 +8,7 @@ import 'package:mono/src/components/password_input.dart';
 import 'package:mono/src/components/text_input.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/image.dart';
+import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 import 'package:mono/src/features/sign_up/sign_up_controller.dart';
@@ -164,7 +165,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         children: [
                           TextSpan(
                             text: 'Sign In',
-                            recognizer: TapGestureRecognizer()..onTap = () {},
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.pushNamed(
+                                  context,
+                                  AppRoutes.signin,
+                                );
+                              },
                             style: AppTypography.kLink.copyWith(
                               color: AppColor.kPrimary,
                             ),

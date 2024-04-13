@@ -22,6 +22,31 @@ class AuthServiceMock implements AuthService {
       );
     } catch (error) {
       if (password != null && password.contains('123')) {
+        throw 'Invalid Email or Password.';
+      }
+
+      throw 'We were unable to log you in.. Please try again later.';
+    }
+  }
+
+  @override
+  Future<UserModel> signIn({
+    required String? email,
+    required String? password,
+  }) async {
+    try {
+      await Future.delayed(const Duration(seconds: 2));
+
+      if (password != null && password.contains('123')) {
+        throw Exception();
+      }
+      return UserModel(
+        id: email.hashCode,
+        email: email,
+        password: password,
+      );
+    } catch (error) {
+      if (password != null && password.contains('123')) {
         throw 'Insecure Password. Enter a stronger password.';
       }
 
