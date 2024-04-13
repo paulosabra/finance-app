@@ -13,7 +13,7 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 import 'package:mono/src/features/sign_in/sign_in_controller.dart';
 import 'package:mono/src/features/sign_in/sign_in_state.dart';
-import 'package:mono/src/services/auth/auth_service_mock.dart';
+import 'package:mono/src/locator.dart';
 import 'package:mono/src/utils/validator.dart';
 
 class SignInPage extends StatefulWidget {
@@ -24,9 +24,7 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  final _controller = SignInController(
-    service: AuthServiceMock(),
-  );
+  final _controller = getIt.get<SignInController>();
 
   final GlobalKey<FormState> _formKey = GlobalKey();
 
