@@ -1,11 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:mono/src/features/sign_up/sign_up_state.dart';
 import 'package:mono/src/services/auth/auth_service.dart';
+import 'package:mono/src/services/secure_storage.dart';
 
 class SignUpController extends ChangeNotifier {
   final AuthService service;
+  final SecureStorage storage;
 
-  SignUpController({required this.service});
+  SignUpController({
+    required this.service,
+    required this.storage,
+  });
 
   SignUpState _state = SignUpInitialState();
 
@@ -23,13 +28,21 @@ class SignUpController extends ChangeNotifier {
   }) async {
     _emit(SignUpLoadingState());
     try {
-      await service.signUp(
+      final user = await service.signUp(
         name: name,
         email: email,
         password: password,
       );
 
-      _emit(SignUpSuccessState());
+      if (user.id != null) {
+        await storage.write(
+          key: "CURRENT_USER",
+          value: user.toJson(),
+        );
+        _emit(SignUpSuccessState());
+      } else {
+        throw Exception();
+      }
     } catch (error) {
       _emit(SignUpErrorState(error.toString()));
     }
