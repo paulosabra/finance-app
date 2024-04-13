@@ -15,7 +15,7 @@ class AuthServiceMock implements AuthService {
         throw Exception();
       }
       return UserModel(
-        id: email.hashCode,
+        id: email.hashCode.toString(),
         name: name,
         email: email,
         password: password,
@@ -41,7 +41,7 @@ class AuthServiceMock implements AuthService {
         throw Exception();
       }
       return UserModel(
-        id: email.hashCode,
+        id: email.hashCode.toString(),
         email: email,
         password: password,
       );
