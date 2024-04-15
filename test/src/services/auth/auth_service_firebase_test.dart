@@ -3,10 +3,10 @@ import 'package:mocktail/mocktail.dart';
 import 'package:mono/src/model/user_model.dart';
 import 'package:mono/src/services/auth/auth_service_firebase.dart';
 
-class MockAuthServiceFirebase extends Mock implements AuthServiceFirebase {}
+import '../../mocks.dart';
 
 void main() {
-  late MockAuthServiceFirebase service;
+  late AuthServiceFirebase service;
 
   setUpAll(() {
     service = MockAuthServiceFirebase();
