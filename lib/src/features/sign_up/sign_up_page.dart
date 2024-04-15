@@ -35,10 +35,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   void dispose() {
-    super.dispose();
+    _controller.dispose();
     _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -51,22 +52,17 @@ class _SignUpPageState extends State<SignUpPage> {
 
       if (_controller.state is SignUpErrorState) {
         Navigator.pop(context);
-        showErrorDialog(context);
+        showErrorDialog(
+          context,
+          message: (_controller.state as SignUpErrorState).message,
+        );
       }
 
       if (_controller.state is SignUpSuccessState) {
         Navigator.pop(context);
-        Navigator.push(
+        Navigator.pushReplacementNamed(
           context,
-          MaterialPageRoute(
-            builder: (context) {
-              return const Scaffold(
-                body: Center(
-                  child: Text('SUCCESS'),
-                ),
-              );
-            },
-          ),
+          AppRoutes.signin,
         );
       }
     });

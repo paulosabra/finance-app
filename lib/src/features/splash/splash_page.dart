@@ -1,9 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/features/splash/splash_controller.dart';
+import 'package:mono/src/features/splash/splash_state.dart';
+import 'package:mono/src/locator.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -13,22 +14,31 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  final _controller = getIt.get<SplashController>();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();
-    initTimer();
-  }
-
-  Timer initTimer() {
-    return Timer(
-      const Duration(seconds: 3),
-      () {
+    _controller.isUserLogged();
+    _controller.addListener(() {
+      if (_controller.state is NavigateToSignInState) {
+        Navigator.pushReplacementNamed(
+          context,
+          AppRoutes.signin,
+        );
+      } else {
         Navigator.pushReplacementNamed(
           context,
           AppRoutes.onboarding,
         );
-      },
-    );
+      }
+    });
   }
 
   @override
