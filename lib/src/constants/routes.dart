@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mono/src/features/home/home_page.dart';
 import 'package:mono/src/features/onboarding/onboarding_page.dart';
+import 'package:mono/src/features/profile/profile_page.dart';
 import 'package:mono/src/features/sign_in/sign_in_page.dart';
 import 'package:mono/src/features/sign_up/sign_up_page.dart';
 import 'package:mono/src/features/splash/splash_page.dart';
@@ -17,6 +18,7 @@ class AppRoutes {
   static const String signin = '/signin';
   static const String statistics = '/statistics';
   static const String wallet = '/wallet';
+  static const String profile = '/profile';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     AppRoutes.splash: (context) => const SplashPage(),
@@ -26,5 +28,6 @@ class AppRoutes {
     AppRoutes.initial: (context) => const HomePage(),
     AppRoutes.statistics: (context) => const StatisticsPage(),
     AppRoutes.wallet: (context) => const WalletPage(),
+    AppRoutes.profile: (context) => const ProfilePage(),
   };
 }
