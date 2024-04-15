@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     _controller.isUserLogged();
     _controller.addListener(() {
-      if (_controller.state is SplashSuccessState) {
+      if (_controller.state is NavigateToSignInState) {
         Navigator.pushReplacementNamed(
           context,
           AppRoutes.signin,

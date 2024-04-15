@@ -2,8 +2,6 @@ abstract class SplashState {}
 
 class SplashInitialState extends SplashState {}
 
-class SplashLoadingState extends SplashState {}
+class NavigateToSignInState extends SplashState {}
 
-class SplashSuccessState extends SplashState {}
-
-class SplashErrorState extends SplashState {}
+class NavigateToOnboardingState extends SplashState {}

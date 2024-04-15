@@ -18,12 +18,12 @@ class SplashController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void isUserLogged() async {
+  Future<void> isUserLogged() async {
     final result = await storage.read(key: "CURRENT_USER");
     if (result != null) {
-      _emit(SplashSuccessState());
+      _emit(NavigateToSignInState());
     } else {
-      _emit(SplashErrorState());
+      _emit(NavigateToOnboardingState());
     }
   }
 }
