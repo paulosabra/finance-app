@@ -5,8 +5,19 @@ import 'package:mono/src/constants/typography.dart';
 
 final appTheme = ThemeData(
   useMaterial3: true,
+  floatingActionButtonTheme: _floatingActionButtonTheme(),
   inputDecorationTheme: _inputDecorationTheme(),
 );
+
+FloatingActionButtonThemeData _floatingActionButtonTheme() {
+  return const FloatingActionButtonThemeData(
+    backgroundColor: AppColor.kPrimary,
+    foregroundColor: AppColor.kWhite,
+    elevation: AppSize.s12,
+    iconSize: AppSize.s24,
+    shape: CircleBorder(),
+  );
+}
 
 InputDecorationTheme _inputDecorationTheme() {
   return InputDecorationTheme(
