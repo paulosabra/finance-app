@@ -1,3 +1,25 @@
 {
-  "appTitle": "mono"
+  "appTitle": "mono",
+  "onboardingTitle": "Spend Smarter Save More",
+  "onboardingButton": "Get Started",
+  "signUpTitle": "Start Saving Your Money!",
+  "signUpButton": "Sign Up",
+  "signInTitle": "Welcome Back!",
+  "signInButton": "Sign In",
+  "haveAccountMessage": "Already have account? ",
+  "haveNoAccountMessage": "Don’t have Account? ",
+  "nameLabel": "Your Name",
+  "nameHelper": "Must have at least first and last name.",
+  "nameEmptyError": "Please enter your name",
+  "nameInvalidError": "Invalid name! Must have at least your first and last name.",
+  "emailLabel": "Your Email",
+  "emailEmptyError": "Please enter your email",
+  "emailInvalidError": "Invalid email! Enter a valid email",
+  "passwordLabel": "Your Password",
+  "passwordHelper": "Must have at least 8 characters, 1 capital letter and 1 number.",
+  "passwordEmptyError": "Please enter your password",
+  "passwordInvalidError": "Invalid password! Must have at least 8 characters, 1 capital letter and 1 number.",
+  "confirmPasswordLabel": "Confirm Your Password",
+  "confirmPasswordEmptyError": "Please re-enter your password",
+  "confirmPasswordInvalidError": "Passwords do not match. Please retype."
 }

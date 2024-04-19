@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/core/extensions/localization_extensions.dart';
 import 'package:mono/src/features/splash/splash_controller.dart';
 import 'package:mono/src/features/splash/splash_state.dart';
 import 'package:mono/src/locator.dart';
@@ -51,7 +52,7 @@ class _SplashPageState extends State<SplashPage> {
           gradient: AppColor.kSplashGradient,
         ),
         child: Text(
-          'mono',
+          context.locales.appTitle,
           style: AppTypography.kSplashPageTitle.copyWith(
             color: AppColor.kWhite,
           ),
