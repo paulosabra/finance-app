@@ -20,7 +20,7 @@ class SignUpController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future signUp({
+  Future<void> signUp({
     required String? name,
     required String? email,
     required String? password,

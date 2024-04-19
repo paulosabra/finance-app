@@ -25,20 +25,21 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _controller.isUserLogged();
-    _controller.addListener(() {
-      if (_controller.state is NavigateToSignInState) {
-        Navigator.pushReplacementNamed(
-          context,
-          AppRoutes.signin,
-        );
-      } else {
-        Navigator.pushReplacementNamed(
-          context,
-          AppRoutes.onboarding,
-        );
-      }
-    });
+    _controller
+      ..isUserLogged()
+      ..addListener(() {
+        if (_controller.state is NavigateToSignInState) {
+          Navigator.pushReplacementNamed(
+            context,
+            AppRoutes.signin,
+          );
+        } else {
+          Navigator.pushReplacementNamed(
+            context,
+            AppRoutes.onboarding,
+          );
+        }
+      });
   }
 
   @override

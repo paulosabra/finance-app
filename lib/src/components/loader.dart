@@ -18,7 +18,7 @@ class CustomLoader extends StatelessWidget {
   }
 }
 
-Future showLoader(BuildContext context) {
+Future<void> showLoader(BuildContext context) {
   return showDialog(
     context: context,
     builder: (_) {

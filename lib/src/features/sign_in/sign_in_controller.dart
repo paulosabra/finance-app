@@ -20,7 +20,7 @@ class SignInController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future signIn({
+  Future<void> signIn({
     required String? email,
     required String? password,
   }) async {
