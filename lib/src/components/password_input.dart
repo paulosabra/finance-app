@@ -4,22 +4,21 @@ import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/size.dart';
 
 class CustomPasswordInput extends StatefulWidget {
-  final String labelText;
-  final String? hintText;
-  final String? helperText;
-  final String? errorText;
-  final TextEditingController? editingController;
-  final FormFieldValidator<String>? validator;
 
   const CustomPasswordInput({
-    super.key,
-    required this.labelText,
+    required this.labelText, super.key,
     this.hintText,
     this.helperText,
     this.errorText,
     this.editingController,
     this.validator,
   });
+  final String labelText;
+  final String? hintText;
+  final String? helperText;
+  final String? errorText;
+  final TextEditingController? editingController;
+  final FormFieldValidator<String>? validator;
 
   @override
   State<CustomPasswordInput> createState() => _CustomPasswordInputState();

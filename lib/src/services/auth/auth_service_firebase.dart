@@ -18,7 +18,7 @@ class AuthServiceFirebase implements AuthService {
       );
 
       if (result.user != null) {
-        final User user = _auth.currentUser!;
+        final user = _auth.currentUser!;
         await user.updateDisplayName(name);
         return UserModel(
           id: user.uid,
@@ -47,7 +47,7 @@ class AuthServiceFirebase implements AuthService {
       );
 
       if (result.user != null) {
-        final User user = _auth.currentUser!;
+        final user = _auth.currentUser!;
         return UserModel(
           id: user.uid,
           name: user.displayName,

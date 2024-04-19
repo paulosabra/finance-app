@@ -15,7 +15,7 @@ void setupDependecies() {
 
 void _servicesSetup() {
   getIt.registerLazySingleton<AuthService>(
-    () => AuthServiceFirebase(),
+    AuthServiceFirebase.new,
   );
 }
 

@@ -5,14 +5,13 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/features/main/widgets/bottom_app_bar_item.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
-  final Color? selectedItemColor;
-  final List<CustomBottomAppBarItem> children;
 
   const CustomBottomAppBar({
-    super.key,
+    required this.children, super.key,
     this.selectedItemColor,
-    required this.children,
   });
+  final Color? selectedItemColor;
+  final List<CustomBottomAppBarItem> children;
 
   @override
   State<CustomBottomAppBar> createState() => _CustomBottomAppBarState();

@@ -16,12 +16,12 @@ class SecureStorage {
   }
 
   Future<String?> read({required String key}) async {
-    String? value = await _secureStorage.read(key: key);
+    final value = await _secureStorage.read(key: key);
     return value;
   }
 
   Future<Map<String, String>> readAll() async {
-    Map<String, String> allValues = await _secureStorage.readAll();
+    final allValues = await _secureStorage.readAll();
     return allValues;
   }
 

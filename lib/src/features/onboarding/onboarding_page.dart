@@ -34,7 +34,6 @@ class OnboardingPage extends StatelessWidget {
                 Expanded(
                   child: Image.asset(
                     AppImage.kCharacter,
-                    alignment: Alignment.center,
                   ),
                 ),
                 AutoSizeText(

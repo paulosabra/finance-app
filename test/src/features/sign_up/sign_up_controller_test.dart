@@ -24,7 +24,7 @@ void main() {
     );
   });
 
-  final UserModel userMock = UserModel(
+  final userMock = UserModel(
     id: '123',
     name: 'User Test',
     email: 'user.test@email.com',

@@ -12,7 +12,6 @@ class CustomLoader extends StatelessWidget {
         dimension: AppSize.s48,
         child: CircularProgressIndicator(
           color: AppColor.kWhite,
-          strokeWidth: AppSize.s4,
         ),
       ),
     );
