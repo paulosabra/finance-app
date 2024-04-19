@@ -29,3 +29,9 @@ debug_wifi:
 	adb devices
 	adb tcpip 5555
 	adb connect 000.000.0.000:5555
+
+release_android:
+	shorebird release android
+
+release_ios:
+	shorebird release android

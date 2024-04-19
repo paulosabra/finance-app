@@ -43,6 +43,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - shorebird.yaml
 
   fonts:
     - family: Inter
