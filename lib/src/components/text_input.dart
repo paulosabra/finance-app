@@ -5,9 +5,9 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 
 class CustomTextInput extends StatefulWidget {
-
   const CustomTextInput({
-    required this.labelText, super.key,
+    required this.labelText,
+    super.key,
     this.hintText,
     this.helperText,
     this.errorText,

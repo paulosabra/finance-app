@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 class CustomBottomAppBarItem {
-
   CustomBottomAppBarItem({
     required this.icon,
     required this.iconSelected,

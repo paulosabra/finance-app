@@ -5,9 +5,9 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/features/main/widgets/bottom_app_bar_item.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
-
   const CustomBottomAppBar({
-    required this.children, super.key,
+    required this.children,
+    super.key,
     this.selectedItemColor,
   });
   final Color? selectedItemColor;

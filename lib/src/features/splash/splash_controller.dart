@@ -3,7 +3,6 @@ import 'package:mono/src/features/splash/splash_state.dart';
 import 'package:mono/src/services/secure_storage.dart';
 
 class SplashController extends ChangeNotifier {
-
   SplashController({
     required this.storage,
   });

@@ -4,7 +4,6 @@ import 'package:mono/src/services/auth/auth_service.dart';
 import 'package:mono/src/services/secure_storage.dart';
 
 class SignUpController extends ChangeNotifier {
-
   SignUpController({
     required this.service,
     required this.storage,

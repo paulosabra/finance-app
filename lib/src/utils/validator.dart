@@ -3,7 +3,8 @@ class Validator {
 
   static String? validateName(String? value) {
     final condition = RegExp(
-        r"^(?:[\u00c0-\u01ffa-zA-Z'-]){2,}(?:\s[\u00c0-\u01ffa-zA-Z'-]{2,})+$",);
+      r"^(?:[\u00c0-\u01ffa-zA-Z'-]){2,}(?:\s[\u00c0-\u01ffa-zA-Z'-]{2,})+$",
+    );
     if (value != null && value.isEmpty) {
       return 'Please enter your name';
     }
@@ -17,7 +18,8 @@ class Validator {
 
   static String? validateEmail(String? value) {
     final condition = RegExp(
-        r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",);
+      r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+    );
     if (value != null && value.isEmpty) {
       return 'Please enter your email';
     }

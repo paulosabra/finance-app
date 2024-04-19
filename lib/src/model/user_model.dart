@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 class UserModel {
-
   UserModel({
     this.id,
     this.name,

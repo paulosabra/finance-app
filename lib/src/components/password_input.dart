@@ -4,9 +4,9 @@ import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/size.dart';
 
 class CustomPasswordInput extends StatefulWidget {
-
   const CustomPasswordInput({
-    required this.labelText, super.key,
+    required this.labelText,
+    super.key,
     this.hintText,
     this.helperText,
     this.errorText,
