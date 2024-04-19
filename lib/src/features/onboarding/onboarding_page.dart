@@ -7,6 +7,7 @@ import 'package:mono/src/constants/image.dart';
 import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/core/extensions/localization_extensions.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -34,11 +35,10 @@ class OnboardingPage extends StatelessWidget {
                 Expanded(
                   child: Image.asset(
                     AppImage.kCharacter,
-                    alignment: Alignment.center,
                   ),
                 ),
                 AutoSizeText(
-                  'Spend Smarter Save More',
+                  context.locales.onboardingTitle,
                   maxFontSize: AppSize.s36,
                   minFontSize: AppSize.s24,
                   style: AppTypography.kDisplay.copyWith(
@@ -48,7 +48,7 @@ class OnboardingPage extends StatelessWidget {
                 ),
                 const SizedBox(height: AppSize.s24),
                 CustomButtonPrimary(
-                  text: 'Get Started',
+                  text: context.locales.onboardingButton,
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
@@ -59,11 +59,11 @@ class OnboardingPage extends StatelessWidget {
                 const SizedBox(height: AppSize.s20),
                 RichText(
                   text: TextSpan(
-                    text: 'Already have account? ',
+                    text: context.locales.haveAccountMessage,
                     style: AppTypography.kBody,
                     children: [
                       TextSpan(
-                        text: 'Sign In',
+                        text: context.locales.signInButton,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             Navigator.pushNamed(

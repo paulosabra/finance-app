@@ -24,7 +24,7 @@ void main() {
     );
   });
 
-  final UserModel userMock = UserModel(
+  const userMock = UserModel(
     id: '123',
     name: 'User Test',
     email: 'user.test@email.com',
@@ -41,7 +41,7 @@ void main() {
       when(() {
         return storage.write(
           key: 'CURRENT_USER',
-          value: userMock.toJson(),
+          value: userMock.name,
         );
       }).thenAnswer((_) async {});
 
@@ -68,7 +68,7 @@ void main() {
       when(() {
         return storage.write(
           key: 'CURRENT_USER',
-          value: userMock.toJson(),
+          value: userMock.name,
         );
       }).thenAnswer((_) async {});
 

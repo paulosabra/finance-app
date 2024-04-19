@@ -11,6 +11,7 @@ import 'package:mono/src/constants/image.dart';
 import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/core/extensions/localization_extensions.dart';
 import 'package:mono/src/features/sign_in/sign_in_controller.dart';
 import 'package:mono/src/features/sign_in/sign_in_state.dart';
 import 'package:mono/src/locator.dart';
@@ -82,7 +83,7 @@ class _SignInPageState extends State<SignInPage> {
               child: Column(
                 children: [
                   AutoSizeText(
-                    'Welcome Back!',
+                    context.locales.signInTitle,
                     maxFontSize: AppSize.s36,
                     minFontSize: AppSize.s24,
                     style: AppTypography.kDisplay.copyWith(
@@ -96,14 +97,17 @@ class _SignInPageState extends State<SignInPage> {
                     child: Column(
                       children: [
                         CustomTextInput(
-                          labelText: 'Your Email',
+                          labelText: context.locales.emailLabel,
                           editingController: _emailController,
                           inputType: TextInputType.emailAddress,
-                          validator: Validator.validateEmail,
+                          validator: (value) => Validator.validateEmail(
+                            context,
+                            value: value,
+                          ),
                         ),
                         const SizedBox(height: AppSize.s20),
                         CustomPasswordInput(
-                          labelText: 'Your Password',
+                          labelText: context.locales.passwordLabel,
                           editingController: _passwordController,
                         ),
                       ],
@@ -111,7 +115,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   const Spacer(),
                   CustomButtonPrimary(
-                    text: 'Sign In',
+                    text: context.locales.signInButton,
                     onPressed: () {
                       final isValid = _formKey.currentState?.validate();
                       if (isValid != null && isValid) {
@@ -125,11 +129,11 @@ class _SignInPageState extends State<SignInPage> {
                   const SizedBox(height: AppSize.s20),
                   RichText(
                     text: TextSpan(
-                      text: 'Don’t have Account? ',
+                      text: context.locales.haveNoAccountMessage,
                       style: AppTypography.kBody,
                       children: [
                         TextSpan(
-                          text: 'Sign Up',
+                          text: context.locales.signUpButton,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               Navigator.pushNamed(

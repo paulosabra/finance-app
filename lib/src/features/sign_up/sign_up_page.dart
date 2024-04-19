@@ -11,6 +11,7 @@ import 'package:mono/src/constants/image.dart';
 import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/core/extensions/localization_extensions.dart';
 import 'package:mono/src/features/sign_up/sign_up_controller.dart';
 import 'package:mono/src/features/sign_up/sign_up_state.dart';
 import 'package:mono/src/locator.dart';
@@ -86,7 +87,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   children: [
                     AutoSizeText(
-                      'Start Saving Your Money!',
+                      context.locales.signUpTitle,
                       maxFontSize: AppSize.s36,
                       minFontSize: AppSize.s24,
                       style: AppTypography.kDisplay.copyWith(
@@ -100,37 +101,45 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: Column(
                         children: [
                           CustomTextInput(
-                            labelText: 'Your Name',
-                            helperText:
-                                'Must have at least first and last name.',
+                            labelText: context.locales.nameLabel,
+                            helperText: context.locales.nameHelper,
                             editingController: _nameController,
                             inputFormatters: [
                               UpperCaseInputFormatter(),
                             ],
-                            validator: Validator.validateName,
+                            validator: (value) => Validator.validateName(
+                              context,
+                              value: value,
+                            ),
                           ),
                           const SizedBox(height: AppSize.s20),
                           CustomTextInput(
-                            labelText: 'Your Email',
+                            labelText: context.locales.emailLabel,
                             editingController: _emailController,
                             inputType: TextInputType.emailAddress,
-                            validator: Validator.validateEmail,
+                            validator: (value) => Validator.validateEmail(
+                              context,
+                              value: value,
+                            ),
                           ),
                           const SizedBox(height: AppSize.s20),
                           CustomPasswordInput(
-                            labelText: 'Choose Your Password',
-                            helperText:
-                                'Must have at least 8 characters, 1 capital letter and 1 number.',
+                            labelText: context.locales.passwordLabel,
+                            helperText: context.locales.passwordHelper,
                             editingController: _passwordController,
-                            validator: Validator.validatePassword,
+                            validator: (value) => Validator.validatePassword(
+                              context,
+                              value: value,
+                            ),
                           ),
                           const SizedBox(height: AppSize.s20),
                           CustomPasswordInput(
-                            labelText: 'Confirm Your Password',
+                            labelText: context.locales.confirmPasswordLabel,
                             validator: (value) {
                               return Validator.validateConfirmPassword(
-                                _passwordController.text,
-                                value,
+                                context,
+                                passwordValue: _passwordController.text,
+                                confirmPasswordValue: value,
                               );
                             },
                           ),
@@ -139,7 +148,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     const SizedBox(height: AppSize.s48),
                     CustomButtonPrimary(
-                      text: 'Sign Up',
+                      text: context.locales.signUpButton,
                       onPressed: () {
                         final isValid = _formKey.currentState?.validate();
                         if (isValid != null && isValid) {
@@ -154,11 +163,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     const SizedBox(height: AppSize.s20),
                     RichText(
                       text: TextSpan(
-                        text: 'Already have account? ',
+                        text: context.locales.haveAccountMessage,
                         style: AppTypography.kBody,
                         children: [
                           TextSpan(
-                            text: 'Sign In',
+                            text: context.locales.signInButton,
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 Navigator.pushNamed(

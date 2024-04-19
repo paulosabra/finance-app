@@ -5,21 +5,9 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 
 class CustomTextInput extends StatefulWidget {
-  final String labelText;
-  final String? hintText;
-  final String? helperText;
-  final String? errorText;
-  final TextEditingController? editingController;
-  final TextInputAction? inputAction;
-  final TextInputType? inputType;
-  final List<TextInputFormatter>? inputFormatters;
-  final FormFieldValidator<String>? validator;
-  final Widget? suffixIcon;
-  final bool obscureText;
-
   const CustomTextInput({
-    super.key,
     required this.labelText,
+    super.key,
     this.hintText,
     this.helperText,
     this.errorText,
@@ -31,6 +19,17 @@ class CustomTextInput extends StatefulWidget {
     this.suffixIcon,
     this.obscureText = false,
   });
+  final String labelText;
+  final String? hintText;
+  final String? helperText;
+  final String? errorText;
+  final TextEditingController? editingController;
+  final TextInputAction? inputAction;
+  final TextInputType? inputType;
+  final List<TextInputFormatter>? inputFormatters;
+  final FormFieldValidator<String>? validator;
+  final Widget? suffixIcon;
+  final bool obscureText;
 
   @override
   State<CustomTextInput> createState() => _CustomTextInputState();

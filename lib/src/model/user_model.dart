@@ -1,38 +1,32 @@
-import 'dart:convert';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-class UserModel {
-  final String? id;
-  final String? name;
-  final String? email;
-  final String? password;
+part 'user_model.g.dart';
 
-  UserModel({
+@JsonSerializable()
+class UserModel extends Equatable {
+  const UserModel({
     this.id,
     this.name,
     this.email,
     this.password,
   });
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'email': email,
-      'password': password,
-    };
-  }
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
-    return UserModel(
-      id: map['id'],
-      name: map['name'],
-      email: map['email'],
-      password: map['password'],
-    );
-  }
+  final String? id;
+  final String? name;
+  final String? email;
+  final String? password;
 
-  String toJson() => json.encode(toMap());
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
 
-  factory UserModel.fromJson(String source) =>
-      UserModel.fromMap(json.decode(source));
+  @override
+  List<Object?> get props => [
+        id,
+        name,
+        email,
+        password,
+      ];
 }

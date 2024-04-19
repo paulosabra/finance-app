@@ -4,13 +4,12 @@ import 'package:mono/src/services/auth/auth_service.dart';
 import 'package:mono/src/services/secure_storage.dart';
 
 class SignInController extends ChangeNotifier {
-  final AuthService service;
-  final SecureStorage storage;
-
   SignInController({
     required this.service,
     required this.storage,
   });
+  final AuthService service;
+  final SecureStorage storage;
 
   SignInState _state = SignInInitialState();
 
@@ -21,7 +20,7 @@ class SignInController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future signIn({
+  Future<void> signIn({
     required String? email,
     required String? password,
   }) async {
@@ -34,8 +33,8 @@ class SignInController extends ChangeNotifier {
 
       if (user.id != null) {
         await storage.write(
-          key: "CURRENT_USER",
-          value: user.toJson(),
+          key: 'CURRENT_USER',
+          value: user.name,
         );
         _emit(SignInSuccessState());
       } else {

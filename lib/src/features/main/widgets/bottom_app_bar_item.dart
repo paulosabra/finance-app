@@ -1,10 +1,6 @@
 import 'dart:ui';
 
 class CustomBottomAppBarItem {
-  final String? icon;
-  final String? iconSelected;
-  final VoidCallback? onPressed;
-
   CustomBottomAppBarItem({
     required this.icon,
     required this.iconSelected,
@@ -16,4 +12,7 @@ class CustomBottomAppBarItem {
     this.iconSelected = '',
     this.onPressed,
   });
+  final String? icon;
+  final String? iconSelected;
+  final VoidCallback? onPressed;
 }

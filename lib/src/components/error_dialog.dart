@@ -5,12 +5,11 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 
 class CustomErrorDialog extends StatelessWidget {
-  final String? message;
-
   const CustomErrorDialog({
     super.key,
     this.message,
   });
+  final String? message;
 
   @override
   Widget build(BuildContext context) {

@@ -15,28 +15,27 @@ void setupDependecies() {
 
 void _servicesSetup() {
   getIt.registerLazySingleton<AuthService>(
-    () => AuthServiceFirebase(),
+    AuthServiceFirebase.new,
   );
 }
 
 void _controllersSetup() {
-  getIt.registerFactory(
-    () => SplashController(
-      storage: const SecureStorage(),
-    ),
-  );
-
-  getIt.registerFactory(
-    () => SignUpController(
-      service: getIt.get<AuthService>(),
-      storage: const SecureStorage(),
-    ),
-  );
-
-  getIt.registerFactory(
-    () => SignInController(
-      service: getIt.get<AuthService>(),
-      storage: const SecureStorage(),
-    ),
-  );
+  getIt
+    ..registerFactory(
+      () => SplashController(
+        storage: const SecureStorage(),
+      ),
+    )
+    ..registerFactory(
+      () => SignUpController(
+        service: getIt.get<AuthService>(),
+        storage: const SecureStorage(),
+      ),
+    )
+    ..registerFactory(
+      () => SignInController(
+        service: getIt.get<AuthService>(),
+        storage: const SecureStorage(),
+      ),
+    );
 }

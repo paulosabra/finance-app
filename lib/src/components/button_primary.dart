@@ -4,14 +4,13 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 
 class CustomButtonPrimary extends StatelessWidget {
-  final String text;
-  final VoidCallback onPressed;
-
   const CustomButtonPrimary({
-    super.key,
     required this.text,
     required this.onPressed,
+    super.key,
   });
+  final String text;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class CustomButtonPrimary extends StatelessWidget {
             BoxShadow(
               color: AppColor.kPrimaryDark.withOpacity(0.7),
               offset: const Offset(0, 10),
-              blurRadius: 15.0,
+              blurRadius: 15,
             ),
           ],
           gradient: AppColor.kButtonPrimaryGradient,

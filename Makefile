@@ -14,6 +14,8 @@ setup:
 	flutter clean
 	flutter pub get
 
+code_generation:
+	dart run build_runner build --delete-conflicting-outputs
 
 quality:
 	dart fix --apply
@@ -23,7 +25,13 @@ quality:
 tests:
 	flutter test --coverage
 
-debug-wifi:
+debug_wifi:
 	adb devices
 	adb tcpip 5555
 	adb connect 000.000.0.000:5555
+
+release_android:
+	shorebird release android
+
+release_ios:
+	shorebird release android

@@ -3,7 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class SecureStorage {
   const SecureStorage();
 
-  final _secureStorage = const FlutterSecureStorage();
+  FlutterSecureStorage get _secureStorage => const FlutterSecureStorage();
 
   Future<void> write({
     required String key,
@@ -16,12 +16,12 @@ class SecureStorage {
   }
 
   Future<String?> read({required String key}) async {
-    String? value = await _secureStorage.read(key: key);
+    final value = await _secureStorage.read(key: key);
     return value;
   }
 
   Future<Map<String, String>> readAll() async {
-    Map<String, String> allValues = await _secureStorage.readAll();
+    final allValues = await _secureStorage.readAll();
     return allValues;
   }
 

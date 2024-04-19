@@ -4,14 +4,13 @@ import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
 
 class CustomButtonSecondary extends StatelessWidget {
-  final String text;
-  final VoidCallback onPressed;
-
   const CustomButtonSecondary({
-    super.key,
     required this.text,
     required this.onPressed,
+    super.key,
   });
+  final String text;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ void main() {
     service = MockAuthServiceFirebase();
   });
 
-  final UserModel userMock = UserModel(
+  const userMock = UserModel(
     id: '123',
     name: 'User Test',
     email: 'user.test@email.com',

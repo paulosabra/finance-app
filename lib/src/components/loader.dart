@@ -12,14 +12,13 @@ class CustomLoader extends StatelessWidget {
         dimension: AppSize.s48,
         child: CircularProgressIndicator(
           color: AppColor.kWhite,
-          strokeWidth: AppSize.s4,
         ),
       ),
     );
   }
 }
 
-Future showLoader(BuildContext context) {
+Future<void> showLoader(BuildContext context) {
   return showDialog(
     context: context,
     builder: (_) {
