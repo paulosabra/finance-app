@@ -17,6 +17,7 @@ dependencies:
   flutter_secure_storage: ^9.0.0
   flutter_svg: ^2.0.10+1
   get_it: ^7.6.9
+  json_annotation: ^4.8.1
 
   # Firebase Dependencies
   firebase_core: ^2.29.0
@@ -26,6 +27,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  json_serializable: ^6.7.1
   mocktail: ^1.0.3
   very_good_analysis: ^5.1.0
 
