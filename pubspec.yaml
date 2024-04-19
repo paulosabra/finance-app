@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   auto_size_text: ^3.0.0
   cupertino_icons: ^1.0.6
@@ -18,6 +20,7 @@ dependencies:
   flutter_secure_storage: ^9.0.0
   flutter_svg: ^2.0.10+1
   get_it: ^7.6.9
+  intl: ^0.18.1
   json_annotation: ^4.8.1
 
   # Firebase Dependencies
@@ -35,6 +38,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
 
   assets:
     - assets/images/
