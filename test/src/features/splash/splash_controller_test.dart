@@ -20,7 +20,7 @@ void main() {
     );
   });
 
-  final userMock = UserModel(
+  const userMock = UserModel(
     id: '123',
     name: 'User Test',
     email: 'user.test@email.com',
@@ -37,7 +37,7 @@ void main() {
       when(() {
         return storage.read(key: 'CURRENT_USER');
       }).thenAnswer((_) async {
-        return userMock.toJson();
+        return userMock.name;
       });
 
       await controller.isUserLogged();
