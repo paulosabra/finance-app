@@ -3,6 +3,7 @@ import 'package:mono/src/components/button_secondary.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/core/extensions/localization_extensions.dart';
 
 class CustomErrorDialog extends StatelessWidget {
   const CustomErrorDialog({
@@ -29,7 +30,7 @@ class CustomErrorDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            message ?? 'Oops. Something went wrong!',
+            message ?? context.locales.genericErrorMessage,
             style: AppTypography.kTitle.copyWith(
               color: AppColor.kPrimary,
             ),

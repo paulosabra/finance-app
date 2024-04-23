@@ -9,14 +9,14 @@ import 'package:mono/src/core/extensions/num_extensions.dart';
 
 class TransactionsListTile extends StatelessWidget {
   const TransactionsListTile({
-    required this.location,
+    required this.title,
     required this.date,
     required this.value,
     super.key,
   });
 
-  final String? location;
-  final DateTime? date;
+  final String? title;
+  final int? date;
   final double? value;
 
   @override
@@ -32,7 +32,7 @@ class TransactionsListTile extends StatelessWidget {
         child: SvgPicture.asset(AppIcons.kLocation),
       ),
       title: Text(
-        location ?? '-',
+        title ?? '-',
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
         style: AppTypography.kText.copyWith(
@@ -40,7 +40,7 @@ class TransactionsListTile extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        date?.formatDateTime() ?? '-',
+        DateTime.fromMillisecondsSinceEpoch(date ?? 0).formatDateTime() ?? '-',
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
         style: AppTypography.kLabel.copyWith(

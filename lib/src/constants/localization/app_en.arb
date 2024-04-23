@@ -28,5 +28,7 @@
   "afternoonGreeting": "Good afternoon,",
   "eveningGreeting": "Good evening,",
   "transactionsTitle": "Transactions history",
-  "seeAllButton": "See all"
+  "transactionsEmptyError": "There are no transactions so far!",
+  "seeAllButton": "See all",
+  "genericErrorMessage": "Oops. Something went wrong!"
 }
