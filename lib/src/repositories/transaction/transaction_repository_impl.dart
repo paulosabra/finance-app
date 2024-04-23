@@ -9,7 +9,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
   }
 
   @override
-  Future<List<TransactionModel>> getAllTransactions() async {
+  Future<Transactions> getAllTransactions() async {
     await Future.delayed(const Duration(seconds: 3));
     return [
       TransactionModel(

@@ -24,3 +24,5 @@ class TransactionModel extends Equatable {
         date,
       ];
 }
+
+typedef Transactions = List<TransactionModel>;
