@@ -23,8 +23,18 @@ class AppTypography {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle kSubtitle = _baseFontStyle.copyWith(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle kText = _baseFontStyle.copyWith(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
+
   static TextStyle kBody = _baseFontStyle.copyWith(
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: FontWeight.w400,
   );
 
