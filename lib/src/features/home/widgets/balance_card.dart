@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/core/extensions/num_extensions.dart';
 import 'package:mono/src/features/home/widgets/balance_item.dart';
 
 class BalanceCard extends StatelessWidget {
@@ -39,7 +40,7 @@ class BalanceCard extends StatelessWidget {
                 ),
               ),
               Text(
-                r'$ 2,548.00',
+                2548.00.formatCurrency() ?? '-',
                 style: AppTypography.kDisplay.copyWith(
                   color: AppColor.kWhite,
                   fontSize: AppSize.s28,
@@ -51,8 +52,8 @@ class BalanceCard extends StatelessWidget {
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              BalanceItem.income(value: r'$ 1,840.00'),
-              BalanceItem.expenses(value: r'$ 284.00'),
+              BalanceItem.income(value: 1840),
+              BalanceItem.expenses(value: 284),
             ],
           ),
         ],

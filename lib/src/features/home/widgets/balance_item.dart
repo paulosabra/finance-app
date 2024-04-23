@@ -4,6 +4,7 @@ import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/icons.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/constants/typography.dart';
+import 'package:mono/src/core/extensions/num_extensions.dart';
 
 class BalanceItem extends StatelessWidget {
   const BalanceItem.income({
@@ -22,7 +23,7 @@ class BalanceItem extends StatelessWidget {
 
   final String icon;
   final String label;
-  final String? value;
+  final double? value;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class BalanceItem extends StatelessWidget {
           ],
         ),
         Text(
-          value ?? '-',
+          value?.formatCurrency() ?? '-',
           style: AppTypography.kSubtitle.copyWith(
             color: AppColor.kWhite,
           ),

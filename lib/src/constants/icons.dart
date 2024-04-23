@@ -6,6 +6,7 @@ class AppIcons {
   static const String kHome = 'assets/icons/home.svg';
   static const String kHomeFilled = 'assets/icons/home-filled.svg';
   static const String kIncome = 'assets/icons/income.svg';
+  static const String kLocation = 'assets/icons/location.svg';
   static const String kProfile = 'assets/icons/profile.svg';
   static const String kProfileFilled = 'assets/icons/profile-filled.svg';
   static const String kStatistics = 'assets/icons/statistics.svg';
