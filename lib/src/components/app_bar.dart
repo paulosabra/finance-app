@@ -39,6 +39,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             widget.name ?? context.locales.whatNewGreeting,
             style: AppTypography.kSubtitle.copyWith(
               color: AppColor.kWhite,
+              fontSize: AppSize.s20,
             ),
           ),
         ],

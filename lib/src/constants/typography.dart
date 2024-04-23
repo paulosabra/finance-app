@@ -24,7 +24,7 @@ class AppTypography {
   );
 
   static TextStyle kSubtitle = _baseFontStyle.copyWith(
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
