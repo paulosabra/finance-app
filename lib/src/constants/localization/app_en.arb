@@ -21,5 +21,10 @@
   "passwordInvalidError": "Invalid password! Must have at least 8 characters, 1 capital letter and 1 number.",
   "confirmPasswordLabel": "Confirm Your Password",
   "confirmPasswordEmptyError": "Please re-enter your password",
-  "confirmPasswordInvalidError": "Passwords do not match. Please retype."
+  "confirmPasswordInvalidError": "Passwords do not match. Please retype.",
+  "hiGreeting": "Hi!",
+  "whatNewGreeting": "What’s new?",
+  "morningGreeting": "Good morning,",
+  "afternoonGreeting": "Good afternoon,",
+  "eveningGreeting": "Good evening,"
 }
