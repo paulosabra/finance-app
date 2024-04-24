@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/typography.dart';
@@ -45,6 +46,12 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ),
+    );
+
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
