@@ -26,6 +26,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
+      scrolledUnderElevation: 0,
       title: widget.title ??
           Center(
             child: Text(
