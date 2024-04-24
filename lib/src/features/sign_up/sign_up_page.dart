@@ -73,15 +73,15 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.kWhite,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Image.asset(
-                AppImage.kBackground,
-                alignment: Alignment.topCenter,
-              ),
-              Container(
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Image.asset(
+              AppImage.kBackground,
+              alignment: Alignment.topCenter,
+            ),
+            SafeArea(
+              child: Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(AppSize.s28),
                 child: Column(
@@ -187,8 +187,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

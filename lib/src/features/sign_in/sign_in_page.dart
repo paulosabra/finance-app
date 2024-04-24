@@ -70,14 +70,14 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.kWhite,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Image.asset(
-              AppImage.kBackground,
-              alignment: Alignment.topCenter,
-            ),
-            Container(
+      body: Stack(
+        children: [
+          Image.asset(
+            AppImage.kBackground,
+            alignment: Alignment.topCenter,
+          ),
+          SafeArea(
+            child: Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(AppSize.s28),
               child: Column(
@@ -153,8 +153,8 @@ class _SignInPageState extends State<SignInPage> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       resizeToAvoidBottomInset: false,
     );
