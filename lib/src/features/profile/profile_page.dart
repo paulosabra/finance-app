@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mono/src/components/app_bar.dart';
+import 'package:mono/src/constants/color.dart';
+import 'package:mono/src/constants/image.dart';
+import 'package:mono/src/constants/routes.dart';
+import 'package:mono/src/constants/size.dart';
+import 'package:mono/src/core/extensions/localization_extensions.dart';
+import 'package:mono/src/features/profile/widgets/profile_button.dart';
+import 'package:mono/src/features/profile/widgets/profile_card.dart';
+import 'package:mono/src/locator.dart';
+import 'package:mono/src/services/auth/auth_service.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -15,12 +25,46 @@ class _ProfilePageState extends State<ProfilePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile Page'),
-      ),
-      body: const Center(
-        child: Text('PROFILE PAGE'),
+    return ColoredBox(
+      color: AppColor.kWhite,
+      child: Stack(
+        children: [
+          Image.asset(
+            AppImage.kAppBar,
+            alignment: Alignment.topCenter,
+          ),
+          Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: CustomAppBar(
+              screen: context.locales.profilePage,
+            ),
+            body: SafeArea(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: AppSize.s36),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const ProfileCard(),
+                      ProfileButton.signOut(
+                        onTap: () async {
+                          await getIt.get<AuthService>().signOut();
+
+                          if (!context.mounted) return;
+                          await Navigator.pushReplacementNamed(
+                            context,
+                            AppRoutes.splash,
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            resizeToAvoidBottomInset: false,
+          ),
+        ],
       ),
     );
   }

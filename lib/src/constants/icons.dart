@@ -9,6 +9,7 @@ class AppIcons {
   static const String kLocation = 'assets/icons/location.svg';
   static const String kProfile = 'assets/icons/profile.svg';
   static const String kProfileFilled = 'assets/icons/profile-filled.svg';
+  static const String kSignOut = 'assets/icons/sign_out.svg';
   static const String kStatistics = 'assets/icons/statistics.svg';
   static const String kStatisticsFilled = 'assets/icons/statistics-filled.svg';
   static const String kWallet = 'assets/icons/wallet.svg';
