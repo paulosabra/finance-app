@@ -46,8 +46,25 @@ class _HomePageState extends State<HomePage>
           Scaffold(
             backgroundColor: Colors.transparent,
             appBar: CustomAppBar(
-              greetings: context.locales.afternoonGreeting,
-              name: 'Architecto Sunt',
+              screen: context.locales.homePage,
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    context.locales.hiGreeting,
+                    style: AppTypography.kLink.copyWith(
+                      color: AppColor.kWhite,
+                    ),
+                  ),
+                  Text(
+                    context.locales.whatNewGreeting,
+                    style: AppTypography.kSubtitle.copyWith(
+                      color: AppColor.kWhite,
+                      fontSize: AppSize.s20,
+                    ),
+                  ),
+                ],
+              ),
             ),
             body: SafeArea(
               child: SingleChildScrollView(

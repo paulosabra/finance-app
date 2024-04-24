@@ -22,6 +22,7 @@
   "confirmPasswordLabel": "Confirm Your Password",
   "confirmPasswordEmptyError": "Please re-enter your password",
   "confirmPasswordInvalidError": "Passwords do not match. Please retype.",
+  "homePage": "Home",
   "hiGreeting": "Hi!",
   "whatNewGreeting": "What’s new?",
   "morningGreeting": "Good morning,",
@@ -30,5 +31,8 @@
   "transactionsTitle": "Transactions history",
   "transactionsEmptyError": "There are no transactions so far!",
   "seeAllButton": "See all",
+  "statisticsPage": "Statistics",
+  "walletPage": "Wallet",
+  "profilePage": "Profile",
   "genericErrorMessage": "Oops. Something went wrong!"
 }
