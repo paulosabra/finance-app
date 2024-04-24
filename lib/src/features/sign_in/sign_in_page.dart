@@ -130,7 +130,9 @@ class _SignInPageState extends State<SignInPage> {
                   RichText(
                     text: TextSpan(
                       text: context.locales.haveNoAccountMessage,
-                      style: AppTypography.kBody,
+                      style: AppTypography.kLink.copyWith(
+                        fontWeight: FontWeight.w400,
+                      ),
                       children: [
                         TextSpan(
                           text: context.locales.signUpButton,

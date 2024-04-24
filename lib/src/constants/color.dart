@@ -9,6 +9,7 @@ class AppColor {
   static const Color kWhite = Color(0xffFFFFFF);
   static const Color kTextPrimary = Color(0xff444444);
   static const Color kTextSecondary = Color(0xff666666);
+  static const Color kTextHighlight = Color(0xff222222);
   static const Color kBorder = Color(0xffDDDDDD);
 
   static const Color kSuccess = Color(0xff25A969);
