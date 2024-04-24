@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mono/src/components/app_bar.dart';
 import 'package:mono/src/constants/color.dart';
 import 'package:mono/src/constants/image.dart';
+import 'package:mono/src/constants/routes.dart';
 import 'package:mono/src/constants/size.dart';
 import 'package:mono/src/core/extensions/localization_extensions.dart';
 import 'package:mono/src/features/profile/widgets/profile_button.dart';
 import 'package:mono/src/features/profile/widgets/profile_card.dart';
+import 'package:mono/src/locator.dart';
+import 'package:mono/src/services/auth/auth_service.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -44,7 +47,15 @@ class _ProfilePageState extends State<ProfilePage>
                     children: [
                       const ProfileCard(),
                       ProfileButton.signOut(
-                        onTap: () {},
+                        onTap: () async {
+                          await getIt.get<AuthService>().signOut();
+
+                          if (!context.mounted) return;
+                          await Navigator.pushReplacementNamed(
+                            context,
+                            AppRoutes.splash,
+                          );
+                        },
                       ),
                     ],
                   ),
