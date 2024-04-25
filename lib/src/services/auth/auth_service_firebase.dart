@@ -43,9 +43,9 @@ class AuthServiceFirebase implements AuthService {
         throw Exception(result);
       }
     } on FirebaseAuthException catch (error) {
-      throw error.message ?? '';
+      throw Exception(error.message ?? '');
     } on FirebaseFunctionsException catch (error) {
-      throw error.message ?? '';
+      throw Exception(error.message ?? '');
     } catch (error) {
       rethrow;
     }
@@ -63,8 +63,6 @@ class AuthServiceFirebase implements AuthService {
       );
 
       if (result.user != null) {
-        log(await _auth.currentUser?.getIdToken() ?? '');
-
         final user = _auth.currentUser!;
         return UserModel(
           id: user.uid,
@@ -75,7 +73,7 @@ class AuthServiceFirebase implements AuthService {
         throw Exception(result);
       }
     } on FirebaseAuthException catch (error) {
-      throw error.message ?? '';
+      throw Exception(error.message ?? '');
     } catch (error) {
       rethrow;
     }
@@ -85,6 +83,20 @@ class AuthServiceFirebase implements AuthService {
   Future<void> signOut() async {
     try {
       await _auth.signOut();
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<String> get userToken async {
+    try {
+      final token = await _auth.currentUser?.getIdToken();
+      if (token != null) {
+        return token;
+      } else {
+        throw Exception('User Not Found');
+      }
     } catch (error) {
       rethrow;
     }
