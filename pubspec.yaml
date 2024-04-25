@@ -26,6 +26,7 @@ dependencies:
   # Firebase Dependencies
   firebase_core: ^2.29.0
   firebase_auth: ^4.19.1
+  cloud_functions: ^4.7.3
 
 dev_dependencies:
   build_runner: ^2.4.9
