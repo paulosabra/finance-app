@@ -1,14 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:mono/src/features/sign_in/sign_in_state.dart';
 import 'package:mono/src/services/auth/auth_service.dart';
+import 'package:mono/src/services/graphql/graphql_service.dart';
 import 'package:mono/src/services/secure_storage.dart';
 
 class SignInController extends ChangeNotifier {
   SignInController({
-    required this.service,
+    required this.authService,
+    required this.graphQLService,
     required this.storage,
   });
-  final AuthService service;
+  final AuthService authService;
+  final GraphQLService graphQLService;
   final SecureStorage storage;
 
   SignInState _state = SignInInitialState();
@@ -26,7 +29,7 @@ class SignInController extends ChangeNotifier {
   }) async {
     _emit(SignInLoadingState());
     try {
-      final user = await service.signIn(
+      final user = await authService.signIn(
         email: email,
         password: password,
       );
@@ -36,6 +39,7 @@ class SignInController extends ChangeNotifier {
           key: 'CURRENT_USER',
           value: user.name,
         );
+        await graphQLService.init();
         _emit(SignInSuccessState());
       } else {
         throw Exception();

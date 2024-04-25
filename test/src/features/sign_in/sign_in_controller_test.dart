@@ -4,6 +4,7 @@ import 'package:mono/src/features/sign_in/sign_in_controller.dart';
 import 'package:mono/src/features/sign_in/sign_in_state.dart';
 import 'package:mono/src/model/user_model.dart';
 import 'package:mono/src/services/auth/auth_service.dart';
+import 'package:mono/src/services/graphql/graphql_service.dart';
 import 'package:mono/src/services/secure_storage.dart';
 
 import '../../mocks.dart';
@@ -11,15 +12,18 @@ import '../../mocks.dart';
 void main() {
   late SignInController controller;
 
-  late AuthService service;
+  late AuthService authService;
+  late GraphQLService graphQLService;
   late SecureStorage storage;
 
   setUp(() {
-    service = MockAuthServiceFirebase();
+    authService = MockAuthServiceFirebase();
+    graphQLService = MockGraphQLServiceHasura();
     storage = MockSecureStorage();
 
     controller = SignInController(
-      service: service,
+      authService: authService,
+      graphQLService: graphQLService,
       storage: storage,
     );
   });
@@ -38,6 +42,8 @@ void main() {
     test('should emits Success State', () async {
       expect(controller.state, isInstanceOf<SignInInitialState>());
 
+      when(() => graphQLService.init()).thenAnswer((_) async {});
+
       when(() {
         return storage.write(
           key: 'CURRENT_USER',
@@ -46,7 +52,7 @@ void main() {
       }).thenAnswer((_) async {});
 
       when(() {
-        return service.signIn(
+        return authService.signIn(
           email: 'user.test@email.com',
           password: 'Test@123',
         );
@@ -73,7 +79,7 @@ void main() {
       }).thenAnswer((_) async {});
 
       when(() {
-        return service.signIn(
+        return authService.signIn(
           email: 'user.test@email.com',
           password: 'Test@123',
         );
