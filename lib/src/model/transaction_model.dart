@@ -11,7 +11,6 @@ class TransactionModel extends Equatable {
     this.title,
     this.value,
   });
-
   final String? id;
   final String? title;
   final double? value;

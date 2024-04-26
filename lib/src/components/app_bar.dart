@@ -9,7 +9,6 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.title,
     super.key,
   });
-
   final String? screen;
   final Widget? title;
 
