@@ -107,7 +107,7 @@ class BalanceCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    controller.balance?.totalBalance.formatCurrency() ?? '-',
+                    controller.balance?.totalBalance?.formatCurrency() ?? '-',
                     style: AppTypography.kDisplay.copyWith(
                       color: AppColor.kWhite,
                       fontSize: AppSize.s28,

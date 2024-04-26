@@ -17,7 +17,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
       );
 
       final data = response.data ?? {};
-      return BalanceModel.fromMap(data);
+      return BalanceModel.fromJson(data);
     } catch (error) {
       rethrow;
     }

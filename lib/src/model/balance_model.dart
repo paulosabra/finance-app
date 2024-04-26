@@ -1,44 +1,37 @@
-import 'dart:convert';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-// TODO: use @JsonSerializable()
-class BalanceModel {
-  BalanceModel({
+part 'balance_model.g.dart';
+
+@JsonSerializable()
+class BalanceModel extends Equatable {
+  const BalanceModel({
     required this.totalBalance,
     required this.income,
     required this.expenses,
   });
 
-  factory BalanceModel.fromMap(Map<String, dynamic> map) {
-    return BalanceModel(
-      totalBalance: double.tryParse(
-            map['totalBalance']['aggregate']['sum']['value'].toString(),
-          ) ??
-          0,
-      income: double.tryParse(
-            map['income']['aggregate']['sum']['value'].toString(),
-          ) ??
-          0,
-      expenses: double.tryParse(
-            map['expenses']['aggregate']['sum']['value'].toString(),
-          ) ??
-          0,
-    );
+  factory BalanceModel.fromJson(Map<String, dynamic> json) =>
+      _$BalanceModelFromJson(json);
+
+  @JsonKey(fromJson: _fromJson)
+  final double? totalBalance;
+  @JsonKey(fromJson: _fromJson)
+  final double? income;
+  @JsonKey(fromJson: _fromJson)
+  final double? expenses;
+
+  Map<String, dynamic> toJson() => _$BalanceModelToJson(this);
+
+  static double _fromJson(dynamic value) {
+    return double.tryParse(value['aggregate']['sum']['value'].toString()) ??
+        0.0;
   }
 
-  factory BalanceModel.fromJson(String source) =>
-      BalanceModel.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  final double totalBalance;
-  final double income;
-  final double expenses;
-
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'totalBalance': totalBalance,
-      'income': income,
-      'totalOutcome': expenses,
-    };
-  }
-
-  String toJson() => json.encode(toMap());
+  @override
+  List<Object?> get props => [
+        totalBalance,
+        income,
+        expenses,
+      ];
 }
