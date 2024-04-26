@@ -13,8 +13,8 @@ class HomeController extends ChangeNotifier {
 
   HomeState get state => _state;
 
-  Transactions _transactions = [];
-  Transactions get transactions => _transactions;
+  Transactions? _transactions = [];
+  Transactions? get transactions => _transactions;
 
   void _emit(HomeState newState) {
     _state = newState;

@@ -7,7 +7,8 @@ import 'package:mono/src/constants/typography.dart';
 import 'package:mono/src/core/extensions/localization_extensions.dart';
 import 'package:mono/src/features/home/home_controller.dart';
 import 'package:mono/src/features/home/home_state.dart';
-import 'package:mono/src/features/home/widgets/balance_card.dart';
+import 'package:mono/src/features/home/widgets/balance_card/balance_card.dart';
+import 'package:mono/src/features/home/widgets/balance_card/balance_card_controller.dart';
 import 'package:mono/src/features/home/widgets/subtitle_item.dart';
 import 'package:mono/src/features/home/widgets/transactions_list_tile.dart';
 import 'package:mono/src/locator.dart';
@@ -21,7 +22,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with AutomaticKeepAliveClientMixin<HomePage> {
-  final _controller = getIt.get<HomeController>();
+  final _balanceController = getIt.get<BalanceCardController>();
+  final _homeController = getIt.get<HomeController>();
 
   @override
   bool get wantKeepAlive => true;
@@ -29,7 +31,8 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _controller.getAllTransactions();
+    _balanceController.getBalance();
+    _homeController.getAllTransactions();
   }
 
   @override
@@ -71,15 +74,15 @@ class _HomePageState extends State<HomePage>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const BalanceCard(),
+                    BalanceCard(controller: _balanceController),
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: AppSize.s20,
                       ),
                       child: AnimatedBuilder(
-                        animation: _controller,
+                        animation: _homeController,
                         builder: (context, _) {
-                          if (_controller.state is HomeLoadingState) {
+                          if (_homeController.state is HomeLoadingState) {
                             return const Center(
                               child: CircularProgressIndicator(
                                 color: AppColor.kPrimary,
@@ -87,14 +90,15 @@ class _HomePageState extends State<HomePage>
                             );
                           }
 
-                          if (_controller.state is HomeErrorState) {
+                          if (_homeController.state is HomeErrorState) {
                             return Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: AppSize.s32,
                               ),
                               alignment: Alignment.center,
                               child: Text(
-                                (_controller.state as HomeErrorState).message ??
+                                (_homeController.state as HomeErrorState)
+                                        .message ??
                                     context.locales.genericErrorMessage,
                                 style: AppTypography.kTitle.copyWith(
                                   color: AppColor.kPrimary,
@@ -104,17 +108,19 @@ class _HomePageState extends State<HomePage>
                             );
                           }
 
-                          if (_controller.state is HomeSuccessState) {
-                            if (_controller.transactions.isNotEmpty) {
+                          if (_homeController.state is HomeSuccessState) {
+                            if (_homeController.transactions != null &&
+                                _homeController.transactions!.isNotEmpty) {
                               return Column(
                                 children: [
                                   const SubtitleItem(),
                                   ListView.builder(
-                                    itemCount: _controller.transactions.length,
+                                    itemCount:
+                                        _homeController.transactions!.length,
                                     shrinkWrap: true,
                                     itemBuilder: (context, index) {
                                       final item =
-                                          _controller.transactions[index];
+                                          _homeController.transactions![index];
                                       return TransactionsListTile(
                                         description: item.description,
                                         date: item.date,
