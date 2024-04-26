@@ -23,6 +23,7 @@ dependencies:
   graphql_flutter: ^5.2.0-beta.6
   intl: ^0.18.1
   json_annotation: ^4.8.1
+  shimmer: ^3.0.0
 
   # Firebase Dependencies
   firebase_core: ^2.29.0
