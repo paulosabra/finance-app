@@ -14,11 +14,11 @@ TransactionModel _$TransactionModelFromJson(Map<String, dynamic> json) =>
       date:
           json['date'] == null ? null : DateTime.parse(json['date'] as String),
       status: json['status'] as bool?,
-      createdAt: json['createdAt'] == null
+      createdAt: json['created_at'] == null
           ? null
-          : DateTime.parse(json['createdAt'] as String),
+          : DateTime.parse(json['created_at'] as String),
       id: json['id'] as String?,
-      userId: json['userId'] as String?,
+      userId: json['user_id'] as String?,
     );
 
 Map<String, dynamic> _$TransactionModelToJson(TransactionModel instance) =>
@@ -29,6 +29,6 @@ Map<String, dynamic> _$TransactionModelToJson(TransactionModel instance) =>
       'status': instance.status,
       'value': instance.value,
       'date': instance.date?.toIso8601String(),
-      'createdAt': instance.createdAt?.toIso8601String(),
-      'userId': instance.userId,
+      'created_at': instance.createdAt?.toIso8601String(),
+      'user_id': instance.userId,
     };

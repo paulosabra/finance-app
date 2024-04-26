@@ -25,7 +25,9 @@ class TransactionModel extends Equatable {
   final bool? status;
   final double? value;
   final DateTime? date;
+  @JsonKey(name: 'created_at')
   final DateTime? createdAt;
+  @JsonKey(name: 'user_id')
   final String? userId;
 
   Map<String, dynamic> toJson() => _$TransactionModelToJson(this);
