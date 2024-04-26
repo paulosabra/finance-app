@@ -3,7 +3,7 @@ class AppQuery {
 
   static const String kGetAllTransactions = '''
   query getAllTransactions {
-    transaction {
+    transaction(order_by: {date: desc}) {
       category
       created_at
       date

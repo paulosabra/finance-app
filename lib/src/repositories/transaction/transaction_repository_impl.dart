@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mono/src/constants/query.dart';
 import 'package:mono/src/locator.dart';
@@ -23,8 +21,13 @@ class TransactionRepositoryImpl implements TransactionRepository {
         QueryOptions(document: gql(AppQuery.kGetAllTransactions)),
       );
 
-      log(response.data.toString());
-      return [];
+      final data = response.data?['transaction'] as List;
+
+      return data.map(
+        (item) {
+          return TransactionModel.fromJson(item as Map<String, dynamic>);
+        },
+      ).toList();
     } catch (error) {
       rethrow;
     }
