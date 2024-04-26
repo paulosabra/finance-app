@@ -27,7 +27,7 @@ class GraphQLServiceHasura implements GraphQLService {
     client = GraphQLClient(
       link: link,
       cache: GraphQLCache(
-        store: HiveStore(),
+        store: InMemoryStore(),
       ),
     );
   }
