@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:mono/src/features/home/home_controller.dart';
+import 'package:mono/src/features/home/widgets/balance_card/balance_card_controller.dart';
 import 'package:mono/src/features/sign_in/sign_in_controller.dart';
 import 'package:mono/src/features/sign_up/sign_up_controller.dart';
 import 'package:mono/src/features/splash/splash_controller.dart';
@@ -59,6 +60,11 @@ void _controllersSetup() {
     )
     ..registerFactory(
       () => HomeController(
+        repository: getIt.get<TransactionRepository>(),
+      ),
+    )
+    ..registerFactory(
+      () => BalanceCardController(
         repository: getIt.get<TransactionRepository>(),
       ),
     );
