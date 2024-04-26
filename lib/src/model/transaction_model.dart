@@ -6,21 +6,40 @@ part 'transaction_model.g.dart';
 @JsonSerializable()
 class TransactionModel extends Equatable {
   const TransactionModel({
-    this.id,
-    this.date,
-    this.title,
+    this.description,
+    this.category,
     this.value,
+    this.date,
+    this.status,
+    this.createdAt,
+    this.id,
+    this.userId,
   });
+
+  factory TransactionModel.fromJson(Map<String, dynamic> json) =>
+      _$TransactionModelFromJson(json);
+
   final String? id;
-  final String? title;
+  final String? description;
+  final String? category;
+  final bool? status;
   final double? value;
-  final int? date;
+  final DateTime? date;
+  final DateTime? createdAt;
+  final String? userId;
+
+  Map<String, dynamic> toJson() => _$TransactionModelToJson(this);
 
   @override
   List<Object?> get props => [
-        title,
+        id,
+        description,
+        category,
+        status,
         value,
         date,
+        createdAt,
+        userId,
       ];
 }
 
