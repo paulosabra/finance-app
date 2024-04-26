@@ -12,7 +12,6 @@ class ProfileButton extends StatelessWidget {
     this.label = 'Sign out',
     super.key,
   });
-
   final String icon;
   final String label;
   final VoidCallback onTap;

@@ -31,6 +31,8 @@ The visual design of the project was based on a prototype made available by the 
 - [x] JSON Serializable
 - [x] Flutter Localization 
 - [x] Shorebird Code Push 
+- [x] Firebase Cloud Functions
+- [x] Hasura GraphQL 
 
 Feel free to explore, contribute, and use this project as a learning resource for Flutter development. If you have any suggestions or improvements, please don't hesitate to open an issue or submit a pull request.
 

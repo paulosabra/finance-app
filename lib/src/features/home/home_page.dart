@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage>
                                       final item =
                                           _controller.transactions[index];
                                       return TransactionsListTile(
-                                        title: item.title,
+                                        description: item.description,
                                         date: item.date,
                                         value: item.value,
                                       );

@@ -7,6 +7,8 @@ import 'package:mono/src/repositories/transaction/transaction_repository.dart';
 import 'package:mono/src/repositories/transaction/transaction_repository_impl.dart';
 import 'package:mono/src/services/auth/auth_service.dart';
 import 'package:mono/src/services/auth/auth_service_firebase.dart';
+import 'package:mono/src/services/graphql/graphql_service.dart';
+import 'package:mono/src/services/graphql/graphql_service_hasura.dart';
 import 'package:mono/src/services/secure_storage.dart';
 
 final getIt = GetIt.instance;
@@ -18,9 +20,15 @@ void setupDependecies() {
 }
 
 void _servicesSetup() {
-  getIt.registerLazySingleton<AuthService>(
-    AuthServiceFirebase.new,
-  );
+  getIt
+    ..registerFactory<AuthService>(
+      AuthServiceFirebase.new,
+    )
+    ..registerLazySingleton<GraphQLService>(
+      () => GraphQLServiceHasura(
+        service: getIt.get<AuthService>(),
+      ),
+    );
 }
 
 void _repositoriesSetup() {
@@ -44,7 +52,8 @@ void _controllersSetup() {
     )
     ..registerFactory(
       () => SignInController(
-        service: getIt.get<AuthService>(),
+        authService: getIt.get<AuthService>(),
+        graphQLService: getIt.get<GraphQLService>(),
         storage: const SecureStorage(),
       ),
     )

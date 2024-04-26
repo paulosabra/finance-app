@@ -7,7 +7,6 @@ class HomeController extends ChangeNotifier {
   HomeController({
     required this.repository,
   });
-
   final TransactionRepository repository;
 
   HomeState _state = HomeInitialState();
